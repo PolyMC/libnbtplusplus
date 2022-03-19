@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.9.4)
 project(libnbt++
     VERSION 2.3)
 
@@ -45,6 +45,8 @@ endif()
 
 add_library(${NBT_NAME} ${NBT_SOURCES})
 target_include_directories(${NBT_NAME} PUBLIC include ${CMAKE_CURRENT_BINARY_DIR})
+
+set_property(TARGET ${NBT_NAME} PROPERTY INTERPROCEDURAL_OPTIMIZATION FALSE)
 
 # Install it
 if(DEFINED NBT_DEST_DIR)
